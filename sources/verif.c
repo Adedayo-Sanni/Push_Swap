@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:43:47 by asanni            #+#    #+#             */
-/*   Updated: 2024/03/09 14:27:37 by asanni           ###   ########.fr       */
+/*   Updated: 2024/03/09 15:39:50 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,27 +48,7 @@ int	digit_check(char **str)
 	return (1);
 }
 
-int	duplicate_check(t_stack *node)
-{
-	t_stack	*atual;
-	t_stack	*aux;
-
-	while (atual != NULL)
-	{
-		aux = atual->next;
-		while (aux != NULL)
-		{
-			if (atual->value == aux->value)
-			{
-				return (1); // Duplicado encontrado
-			}
-			aux = aux->next;
-		}
-		atual = atual->next;
-	}
-	return (0); // Nenhum duplicado encontrado
-}
-
+// int	duplicate_check(t_stack *a, int nbr)
 // {
 // 	t_stack *curr = a;
 // 	t_stack *aux;
@@ -84,9 +64,16 @@ int	duplicate_check(t_stack *node)
 // 	return (1);
 // }
 
-//função irá percorrer toda a stack a
-	//e verificar se ela esta em ordem 
-// int	stack_sorted(t_stack a)
-// {
-// 	int	x;
-// }
+int	duplicate_check(t_stack **stack, int value)
+{
+	t_stack	*aux;
+
+	aux = (*stack);
+	while (aux != NULL)
+	{
+		if (aux->value == value)
+			return (1);
+		aux = aux->next;
+	}
+	return (0);
+}

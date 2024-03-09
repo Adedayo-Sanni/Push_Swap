@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:50:49 by asanni            #+#    #+#             */
-/*   Updated: 2024/03/09 14:24:08 by asanni           ###   ########.fr       */
+/*   Updated: 2024/03/09 15:38:56 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 typedef struct s_stack
 {
 	int				value;
-	struct t_stack	*prev;
-	struct t_stack	*node;
-	struct t_stack	*next;
+	struct s_stack	*prev;
+	struct s_stack	*node;
+	struct s_stack	*next;
 }t_stack;
 
 //Functions 
@@ -33,7 +33,8 @@ int		digit_check(char **str);
 void	error_out(void);
 void	make_stack(t_stack **a, char **argv);
 int		stack_sorted(t_stack a);
-int		duplicate_check(t_stack *node);
-t_stack	*find_last(t_stack *stack);
+//int		duplicate_check(t_stack *node);
+int		duplicate_check(t_stack **stack, int value);
+t_stack	*find_last(t_stack **stack);
 
 #endif

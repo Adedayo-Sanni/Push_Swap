@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:45:08 by asanni            #+#    #+#             */
-/*   Updated: 2024/03/09 14:25:09 by asanni           ###   ########.fr       */
+/*   Updated: 2024/03/09 16:14:14 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ void	make_node(t_stack **stack, int nbr)
 	{
 		*stack = new_node;
 		new_node->prev = NULL;
+		return ;
 	}
-	else
-	{
-		last_node = find_last(*stack);
-		last_node->next = new_node;
-		new_node->prev = last_node;
-	}
+	last_node = find_last(stack);
+	last_node->next = new_node;
+	new_node->prev = last_node;
 }
 
 void	make_stack(t_stack **a, char **argv)
@@ -50,18 +48,21 @@ void	make_stack(t_stack **a, char **argv)
 	{
 		value = ft_atoi(argv[i]);
 		if (value < INT_MIN || value > INT_MAX
-			|| duplicate_check(*a) == 1)
+			|| duplicate_check(a, value) == 1)
 			error_out();
 		make_node (a, value);
 		i++;
 	}
 }
 
-t_stack	*find_last(t_stack *stack)
+t_stack	*find_last(t_stack **stack)
 {
-	if (stack == NULL)
+	t_stack	*temp;
+
+	temp = (*stack);
+	if (temp == NULL)
 		return (NULL);
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
 }
