@@ -48,22 +48,6 @@ int	digit_check(char **str)
 	return (1);
 }
 
-// int	duplicate_check(t_stack *a, int nbr)
-// {
-// 	t_stack *curr = a;
-// 	t_stack *aux;
-
-// 	if (a == NULL)
-// 		return (1);
-// 	while (curr)
-// 	{
-// 		if (a->value == nbr)
-// 			return (0);
-// 		a = a->next;
-// 	}
-// 	return (1);
-// }
-
 int	duplicate_check(t_stack **stack, int value)
 {
 	t_stack	*aux;
@@ -76,4 +60,17 @@ int	duplicate_check(t_stack **stack, int value)
 		aux = aux->next;
 	}
 	return (0);
+}
+
+int	is_sorted(t_stack **stack)
+{
+	if (NULL == stack)
+		error_out();
+	while ((*stack)->next)
+	{
+		if ((*stack)->value > (*stack)->next->value)
+			return (0);
+		(*stack) = (*stack)->next;
+	}
+	return (1);
 }

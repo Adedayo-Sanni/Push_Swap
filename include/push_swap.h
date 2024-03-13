@@ -28,13 +28,22 @@ typedef struct s_stack
 }t_stack;
 
 //Functions 
-void	error_check(char *str);
 int		digit_check(char **str);
+int		duplicate_check(t_stack **stack, int value);
+int		pop_node(t_stack **head);
+int 	arg_to_int(char **argv);
+int		is_sorted(t_stack **stack);
 void	error_out(void);
 void	make_stack(t_stack **a, char **argv);
-int		stack_sorted(t_stack a);
-//int		duplicate_check(t_stack *node);
-int		duplicate_check(t_stack **stack, int value);
+//void	make_stack(t_stack **a, int nbr);
+void	make_node(t_stack **stack, int nbr);
 t_stack	*find_last(t_stack **stack);
+t_stack *find_top(t_stack **stack);
+void *swap_a(t_stack **swap);
+void *swap_b(t_stack **swap);
+void swap_both(t_stack **swap_a, t_stack **swap_b);
+void push_a(t_stack **stack_a, t_stack **stack_b);
+void push_b(t_stack **stack_b, t_stack **stack_a);
+void free_all(t_stack  **head);
 
 #endif

@@ -11,3 +11,15 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	free_all(t_stack **head)
+{
+	t_stack	*temp;
+
+	while (*head != NULL)
+	{
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
+	}
+}

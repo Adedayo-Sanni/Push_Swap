@@ -12,7 +12,19 @@
 
 #include "../include/push_swap.h"
 
-void	make_node(t_stack **stack, int nbr);
+void	print(t_stack **topo)
+{
+	t_stack	*atual;
+
+	if (*topo == NULL)
+		error_out();
+	*atual = *topo;
+	while (atual != NULL)
+	{
+		ft_printf("%d\n", atual->value);
+		atual = atual->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -26,8 +38,15 @@ int	main(int argc, char **argv)
 	else if (argc > 1)
 		digit_check(argv);
 	make_stack(&a, argv);
-	// if (!stack_sorted (a))
-	// {	
-	// }
-	// free_stack(&a);
+	print(&a);
+	push_a(&a, &b);
+	//print(&b);
+	if (is_sorted (&a) == 0)
+	{	
+	//	start_sorting(&a, &b);
+	}
+	ft_printf("nova\n");
+	print(&a);
+	print(&b);
+	free_all(&a);
 }

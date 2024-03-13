@@ -43,7 +43,7 @@ void	make_stack(t_stack **a, char **argv)
 	int	i;
 	int	value;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		value = ft_atoi(argv[i]);
@@ -65,4 +65,27 @@ t_stack	*find_last(t_stack **stack)
 	while (temp->next != NULL)
 		temp = temp->next;
 	return (temp);
+}
+
+t_stack	*find_top(t_stack **stack)
+{
+	if(*stack == NULL)
+	{
+		return (NULL);
+	}
+	return (*stack);
+}
+
+int	arg_to_int(char **argv)
+{
+	int	value;
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		value = ft_atoi(argv[i]);
+		i++;
+	}
+	return (value);
 }

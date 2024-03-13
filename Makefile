@@ -27,6 +27,9 @@ SRC = sources/free_stack.c \
 sources/main.c \
 sources/make_stack.c \
 sources/verif.c \
+sources/node_func.c \
+sources/swap_funcs.c \
+sources/push_funcs.c \
 
 #--------------RULES----------------------------#
 
