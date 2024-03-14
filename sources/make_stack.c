@@ -26,32 +26,32 @@ void	make_node(t_stack **stack, int nbr)
 	if (new_node == NULL)
 		error_out();
 	new_node->value = nbr;
-	new_node->next = NULL;
+	new_node->prev = NULL;
 	if (*stack == NULL)
 	{
 		*stack = new_node;
+		new_node->next = NULL;
 		new_node->prev = NULL;
 		return ;
 	}
 	last_node = find_last(stack);
-	last_node->next = new_node;
-	new_node->prev = last_node;
+	//last_node->prev = new_node;
+	new_node->next = last_node;
 }
 
-void	make_stack(t_stack **a, char **argv)
+void	make_stack(t_stack **a, char **argv, int argc)
 {
 	int	i;
 	int	value;
 
-	i = 1;
-	while (argv[i])
+	while (argc != 1)
 	{
-		value = ft_atoi(argv[i]);
+		value = ft_atoi(argv[argc - 1]);
 		if (value < INT_MIN || value > INT_MAX
 			|| duplicate_check(a, value) == 1)
 			error_out();
 		make_node (a, value);
-		i++;
+		argc--;
 	}
 }
 
@@ -62,30 +62,29 @@ t_stack	*find_last(t_stack **stack)
 	temp = (*stack);
 	if (temp == NULL)
 		return (NULL);
-	while (temp->next != NULL)
-		temp = temp->next;
+	while (temp->prev != NULL)
+		temp = temp->prev;
 	return (temp);
 }
 
 t_stack	*find_top(t_stack **stack)
 {
-	if(*stack == NULL)
+	if (*stack == NULL)
 	{
 		return (NULL);
 	}
 	return (*stack);
 }
 
-int	arg_to_int(char **argv)
-{
-	int	value;
-	int	i;
-
-	i = 0;
-	while (argv[i])
-	{
-		value = ft_atoi(argv[i]);
-		i++;
-	}
-	return (value);
-}
+// int	arg_to_int(char **argv)
+// {
+// 	int	value;
+// 	int	i;
+// 	i = 0;
+// 	while (argv[i])
+// 	{
+// 		value = ft_atoi(argv[i]);
+// 		i++;
+// 	}
+// 	return (value);
+// }

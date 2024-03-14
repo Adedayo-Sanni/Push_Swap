@@ -15,8 +15,7 @@
 //função sorting mãe
 //vai chamar todas as outras de sorting
 
-void start_sorting(t_stack **a, t_stack **b)
+void	start_sorting(t_stack **a, t_stack **b)
 {
-  if (argc == 3)
-				swap_a(&a);
+	//chamar funcoes de sort
 }

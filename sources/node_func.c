@@ -12,23 +12,16 @@
 
 #include "../include/push_swap.h"
 
-int	pop_node(t_stack **head)
+t_stack	*pop_node(t_stack **head)
 {
 	t_stack	*temp;
-	int		aux;
 
 	if (*head == NULL)
-		return (-1);
-	*temp = *head;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
-	aux = temp->value;
-	if (temp->prev != NULL)
-		temp->prev->next = NULL;
-	else
-		*head = NULL;
-	free(temp);
-	return (aux);
+		return (NULL);
+	temp = (*head);
+	temp->next = NULL;
+	temp->prev = NULL;
+	(*head) = (*head)->next;
+	//(*head)->prev = NULL;
+	return (temp);
 }

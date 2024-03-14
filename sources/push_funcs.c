@@ -12,27 +12,34 @@
 
 #include "../include/push_swap.h"
 
-void	push_a(t_stack **stack_a, t_stack **stack_b)
+void	lsadd_back(t_stack **lst, t_stack *new)
 {
-	int	pop;
+	if (lst && new)
+	{
+		if (!*lst)
+			*lst = new;
+		else
+		{
+			find_last(lst)->next = new;
+		}	
+	}
+}
 
-	pop = pop_node(stack_a);
-	make_node(stack_b, pop);
-	make_stack(stack_b, pop);
+//push b: Take the first node at the top of a and put it at the top of b.
+void	push_a(t_stack **stack_b, t_stack **stack_a)
+{
+	t_stack	*node_pop;
+
+	node_pop = pop_node(stack_b);
+	lsadd_back(stack_b, (*stack_a));
 	ft_printf("pa\n");
 }
-/*void push_a(t_stack **stack_a, t_stack **stack_b)
-{
-		int pop;
-	
-		pop = pop_node(stack_a);
-		make_node(stack_b, pop);
-		make_node(stack_a, pop);
-		ft_printf("pa\n");
-}*/
 
-void	push_b(t_stack **stack_b, t_stack **stack_a)
+void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
-	make_node(stack_b, pop_node(stack_a));
-	ft_printf("pa\n");
+	t_stack	*node_pop;
+
+	node_pop = pop_node(stack_a);
+	lsadd_back(stack_a, (*stack_b));
+	ft_printf("pb\n");
 }

@@ -30,20 +30,20 @@ typedef struct s_stack
 //Functions 
 int		digit_check(char **str);
 int		duplicate_check(t_stack **stack, int value);
-int		pop_node(t_stack **head);
-int 	arg_to_int(char **argv);
+int		arg_to_int(char **argv);
 int		is_sorted(t_stack **stack);
 void	error_out(void);
-void	make_stack(t_stack **a, char **argv);
-//void	make_stack(t_stack **a, int nbr);
+//void	make_stack(t_stack **a, char **argv);
 void	make_node(t_stack **stack, int nbr);
 t_stack	*find_last(t_stack **stack);
-t_stack *find_top(t_stack **stack);
-void *swap_a(t_stack **swap);
-void *swap_b(t_stack **swap);
-void swap_both(t_stack **swap_a, t_stack **swap_b);
-void push_a(t_stack **stack_a, t_stack **stack_b);
-void push_b(t_stack **stack_b, t_stack **stack_a);
-void free_all(t_stack  **head);
+t_stack	*find_top(t_stack **stack);
+t_stack	*pop_node(t_stack **head);
+void	*swap_a(t_stack **swap);
+void	*swap_b(t_stack **swap);
+void	swap_both(t_stack **swap_a, t_stack **swap_b);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
+void	push_b(t_stack **stack_b, t_stack **stack_a);
+void	free_all(t_stack **head);
+void	make_stack(t_stack **a, char **argv, int argc);
 
 #endif
