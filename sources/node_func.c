@@ -12,16 +12,16 @@
 
 #include "../include/push_swap.h"
 
-t_stack	*pop_node(t_stack **head)
+t_stack	*pop_node(t_stack **stack_top)
 {
 	t_stack	*temp;
 
-	if (*head == NULL)
+	if (*stack_top == NULL)
 		return (NULL);
-	temp = (*head);
+	temp = (*stack_top);
+	(*stack_top) = (*stack_top)->next;
 	temp->next = NULL;
 	temp->prev = NULL;
-	(*head) = (*head)->next;
-	//(*head)->prev = NULL;
+	ft_printf("poped node %d\n", temp->value);
 	return (temp);
 }

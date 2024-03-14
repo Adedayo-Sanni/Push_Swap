@@ -35,7 +35,7 @@ int		is_sorted(t_stack **stack);
 void	error_out(void);
 //void	make_stack(t_stack **a, char **argv);
 void	make_node(t_stack **stack, int nbr);
-t_stack	*find_last(t_stack **stack);
+t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
 t_stack	*pop_node(t_stack **head);
 void	*swap_a(t_stack **swap);
@@ -45,5 +45,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_b, t_stack **stack_a);
 void	free_all(t_stack **head);
 void	make_stack(t_stack **a, char **argv, int argc);
+void	lstadd_front(t_stack **lst, t_stack *new);
+t_stack	*create_node(int nbr);
 
 #endif

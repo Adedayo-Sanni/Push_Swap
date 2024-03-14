@@ -17,12 +17,15 @@ void	print(t_stack **topo)
 	t_stack	*atual;
 
 	if (*topo == NULL)
+	{
+		ft_printf("NON Ecxiste!!!");
 		error_out();
+	}
 	atual = (*topo);
 	while (atual != NULL)
 	{
 		ft_printf("%d\n", atual->value);
-		atual = atual->prev;
+		atual = atual->next;
 	}
 }
 
@@ -34,25 +37,22 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-		//error_out();
 		ft_printf("./push_swap\n");
 	else if (argc > 1)
 		digit_check(argv);
 	make_stack(&a, argv, argc);
-	ft_printf("next: %d\n", a->next);
-	ft_printf("value: %d\n", a->value);
-	ft_printf("prev: %d\n", a->prev);
 	print(&a);
 	push_b(&a, &b);
-	//print(&b);
-	// print(&a);
-	// print(&b);
+	ft_printf("stack_b\n");
+	//print(&a);
+	print(&b);
+	ft_printf("stack_a\n");
+	print(&a);
 	// if (is_sorted (&a) == 0)
 	// {	
 	// 	if (argc == 3)
 	// 	swap_a(&a);
 	// //	start_sorting(&a, &b);
 	// }
-	// //ft_printf("nova\n");
 	free_all(&a);
 }

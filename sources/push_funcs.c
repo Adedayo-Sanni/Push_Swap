@@ -12,34 +12,49 @@
 
 #include "../include/push_swap.h"
 
-void	lsadd_back(t_stack **lst, t_stack *new)
+// void	lsadd_back(t_stack **lst, t_stack *new)
+// {
+// 	if (lst && new)
+// 	{
+// 		if (!*lst)
+// 			*lst = new;
+// 		else
+// 		{
+// 			find_top(lst);
+// 		}	
+// 	}
+// }
+void	lstadd_front(t_stack **lst, t_stack *new)
 {
-	if (lst && new)
-	{
-		if (!*lst)
-			*lst = new;
-		else
-		{
-			find_last(lst)->next = new;
-		}	
-	}
+	new->next = *lst;
+	*lst = new;
 }
 
-//push b: Take the first node at the top of a and put it at the top of b.
-void	push_a(t_stack **stack_b, t_stack **stack_a)
+void	push_a(t_stack **source, t_stack **recieve)
 {
-	t_stack	*node_pop;
+	t_stack	*poped_node;
 
-	node_pop = pop_node(stack_b);
-	lsadd_back(stack_b, (*stack_a));
+	poped_node = pop_node(source);
+	*recieve = create_node(poped_node->value);
 	ft_printf("pa\n");
 }
 
-void	push_b(t_stack **stack_a, t_stack **stack_b)
+void	push_b(t_stack **source, t_stack **recieve)
 {
-	t_stack	*node_pop;
+	t_stack	*poped_node;
 
-	node_pop = pop_node(stack_a);
-	lsadd_back(stack_a, (*stack_b));
+	poped_node = pop_node(source);
+	*recieve = create_node(poped_node->value);
 	ft_printf("pb\n");
+}
+
+t_stack	*create_node(int nbr)
+{
+	t_stack	*node;
+
+	node = (t_stack *)malloc(sizeof(t_stack *));
+	node->value = nbr;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }
