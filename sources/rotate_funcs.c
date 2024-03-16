@@ -44,7 +44,7 @@ void	rotate_b(t_stack **stack_b)
 	(*stack_b)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 void	rotate_rr(t_stack **stack_a, t_stack **stack_b)

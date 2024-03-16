@@ -24,7 +24,6 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	struct s_stack	*prev;
-	//struct s_stack	*node;
 	struct s_stack	*next;
 }t_stack;
 
@@ -34,7 +33,6 @@ int		duplicate_check(t_stack **stack, int value);
 int		arg_to_int(char **argv);
 int		is_sorted(t_stack **stack);
 void	error_out(void);
-//void	make_stack(t_stack **a, char **argv);
 void	make_node(t_stack **stack, int nbr);
 t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
@@ -55,5 +53,6 @@ void	rev_a(t_stack **stack_a);
 void	rev_b(t_stack **stack_b);
 void	set_index(t_stack **stack);
 int		index_binary(int index);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len);
 
 #endif
