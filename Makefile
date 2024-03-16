@@ -28,6 +28,9 @@ sources/main.c \
 sources/make_stack.c \
 sources/node_func.c \
 sources/push_funcs.c \
+sources/revrotate_funcs.c \
+sources/rotate_funcs.c \
+sources/sort_stack.c \
 sources/swap_funcs.c \
 sources/verif.c \
 

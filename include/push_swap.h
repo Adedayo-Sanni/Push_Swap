@@ -22,8 +22,9 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*prev;
-	struct s_stack	*node;
+	//struct s_stack	*node;
 	struct s_stack	*next;
 }t_stack;
 
@@ -38,14 +39,19 @@ void	make_node(t_stack **stack, int nbr);
 t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
 t_stack	*pop_node(t_stack **head);
+t_stack	*create_node(int nbr);
+void	free_all(t_stack **head);
+void	make_stack(t_stack **a, char **argv, int argc);
+void	lstadd_front(t_stack **lst, t_stack *new);
 void	*swap_a(t_stack **swap);
 void	*swap_b(t_stack **swap);
 void	swap_both(t_stack **swap_a, t_stack **swap_b);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_b, t_stack **stack_a);
-void	free_all(t_stack **head);
-void	make_stack(t_stack **a, char **argv, int argc);
-void	lstadd_front(t_stack **lst, t_stack *new);
-t_stack	*create_node(int nbr);
+void	rotate_a(t_stack **stack_a);
+void	rotate_b(t_stack **stack_b);
+void	rotate_rr(t_stack **stack_a, t_stack **stack_b);
+void	rev_a(t_stack **stack_a);
+void	rev_b(t_stack **stack_b);
 
 #endif

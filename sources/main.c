@@ -36,23 +36,21 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (argc == 1)
 		ft_printf("./push_swap\n");
+	if (argc == 2 || argv[1][0] == '\0')
+		error_out();
 	else if (argc > 1)
+	{
 		digit_check(argv);
-	make_stack(&a, argv, argc);
-	print(&a);
-	push_b(&a, &b);
-	ft_printf("stack_b\n");
-	//print(&a);
-	print(&b);
-	ft_printf("stack_a\n");
-	print(&a);
-	// if (is_sorted (&a) == 0)
-	// {	
-	// 	if (argc == 3)
-	// 	swap_a(&a);
-	// //	start_sorting(&a, &b);
-	// }
+		make_stack(&a, argv, argc);
+		print(&a);
+		if (is_sorted (&a) == 0)
+		{	
+			if (argc == 3)
+				swap_a(&a);
+			//start_sorting(&a, &b);
+		}
+	}
 	free_all(&a);
 }

@@ -19,3 +19,4 @@ void	start_sorting(t_stack **a, t_stack **b)
 {
 	//chamar funcoes de sort
 }
+
