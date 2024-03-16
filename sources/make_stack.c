@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-// Function that takes as an argument the stack A formatted as a list
-// of integers. The first argument should be at the top of the stack
-// verif: aqui vai check double e check bool
 
 void	make_node(t_stack **stack, int nbr)
 {
@@ -45,6 +42,7 @@ void	make_stack(t_stack **a, char **argv, int argc)
 	int	i;
 	int	value;
 
+	digit_check(argv);
 	while (argc != 1)
 	{
 		value = ft_atoi(argv[argc - 1]);
@@ -55,16 +53,3 @@ void	make_stack(t_stack **a, char **argv, int argc)
 		argc--;
 	}
 }
-
-// int	arg_to_int(char **argv)
-// {
-// 	int	value;
-// 	int	i;
-// 	i = 0;
-// 	while (argv[i])
-// 	{
-// 		value = ft_atoi(argv[i]);
-// 		i++;
-// 	}
-// 	return (value);
-// }

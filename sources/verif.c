@@ -18,12 +18,6 @@
 // some arguments are bigger than an integer (int max: 2147483647)
 // there are duplicates (percorre toda a lista e compara tds ints se repetem)
 
-void	error_out(void)
-{
-	ft_putendl_fd("Error", 2);
-	exit (EXIT_FAILURE);
-}
-
 int	digit_check(char **str)
 {
 	int		i;

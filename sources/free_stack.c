@@ -23,3 +23,9 @@ void	free_all(t_stack **head)
 		free(temp);
 	}
 }
+
+void	error_out(void)
+{
+	ft_putendl_fd("Error", 2);
+	exit (EXIT_FAILURE);
+}

@@ -53,5 +53,7 @@ void	rotate_b(t_stack **stack_b);
 void	rotate_rr(t_stack **stack_a, t_stack **stack_b);
 void	rev_a(t_stack **stack_a);
 void	rev_b(t_stack **stack_b);
+void	set_index(t_stack **stack);
+int		index_binary(int index);
 
 #endif
