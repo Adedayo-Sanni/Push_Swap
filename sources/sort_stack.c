@@ -65,6 +65,8 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len)
 				rotate_a(stack_a);
 			i--;
 		}
+		while (stack_b)
+		push_a(stack_b, stack_a);
 		bit_shift++;
 	}
 }
