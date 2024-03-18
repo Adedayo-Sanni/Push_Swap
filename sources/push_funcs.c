@@ -25,7 +25,7 @@ void	push_function(t_stack **source, t_stack **receive)
 
 	popped_node = pop_node(source);
 	if (popped_node == NULL)
-		return ;
+		error_out();
 	if (*receive == NULL)
 		*receive = popped_node;
 	else

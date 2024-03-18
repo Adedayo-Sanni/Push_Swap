@@ -23,7 +23,7 @@ void	make_node(t_stack **stack, int nbr)
 	if (new_node == NULL)
 		error_out();
 	new_node->value = nbr;
-	new_node->index = 0;
+	new_node->index = -1;
 	new_node->next = NULL;
 	if (*stack == NULL)
 	{

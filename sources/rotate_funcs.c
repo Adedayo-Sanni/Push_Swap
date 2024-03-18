@@ -22,7 +22,7 @@ void	rotate_a(t_stack **stack_a)
 	t_stack	*last_node;
 
 	if (*stack_a == NULL)
-		return ;
+		error_out();
 	last_node = find_top(stack_a);
 	last_node->next = *stack_a;
 	*stack_a = (*stack_a)->next;
@@ -37,7 +37,7 @@ void	rotate_b(t_stack **stack_b)
 	t_stack	*last_node;
 
 	if (*stack_b == NULL)
-		return ;
+		error_out();
 	last_node = find_top(stack_b);
 	last_node->next = *stack_b;
 	*stack_b = (*stack_b)->next;

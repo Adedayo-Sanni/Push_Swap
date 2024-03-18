@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include "../libft/libft.h" /* mylibft */
-#include <stdio.h>
 
 //Stack Struct
 typedef struct s_stack

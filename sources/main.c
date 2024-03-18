@@ -18,7 +18,7 @@ void	print(t_stack **topo)
 
 	if (*topo == NULL)
 	{
-		ft_printf("NON Ecxiste!!!");
+		ft_printf("NON Ecxiste!!!\n");
 		error_out();
 	}
 	atual = (*topo);
@@ -43,9 +43,6 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 	{
 		make_stack(&a, argv, argc);
-		push_b(&a, &b);
-		//push_a(&a, &b);
-		print(&a);
 		set_index(&a);
 		if (is_sorted (&a) == 0)
 		{	
@@ -54,6 +51,5 @@ int	main(int argc, char **argv)
 			radix_sort(&a, &b, (argc -1));
 		}
 	}
-	print(&a);
 	free_all(&a);
 }
