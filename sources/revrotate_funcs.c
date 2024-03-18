@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   revrotate_funcs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 17:24:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/12 17:24:37 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/18 15:32:03 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/18 15:32:03 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rev_a(t_stack **stack_a)
 
 	if (*stack_a == NULL)
 		return ;
-	last_node = find_base(stack_a);
+	last_node = find_top(stack_a);
 	last_node->prev->next = NULL;
 	last_node->next = *stack_a;
 	last_node->prev = NULL;
@@ -33,7 +33,7 @@ void	rev_b(t_stack **stack_b)
 
 	if (*stack_b == NULL)
 		return ;
-	last_node = find_base(stack_b);
+	last_node = find_top(stack_b);
 	last_node->prev->next = NULL;
 	last_node->next = *stack_b;
 	last_node->prev = NULL;

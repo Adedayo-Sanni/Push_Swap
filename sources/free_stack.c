@@ -22,6 +22,7 @@ void	free_all(t_stack **head)
 		*head = (*head)->next;
 		free(temp);
 	}
+	head = NULL;
 }
 
 void	error_out(void)

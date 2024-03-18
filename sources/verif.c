@@ -12,12 +12,6 @@
 
 #include "../include/push_swap.h"
 
-// ERROR: it must display "Error" followed by a ’\n’on the standard error.
-// Errors include: 
-// some arguments aren’t integers,
-// some arguments are bigger than an integer (int max: 2147483647)
-// there are duplicates (percorre toda a lista e compara tds ints se repetem)
-
 int	digit_check(char **str)
 {
 	int		i;

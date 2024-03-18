@@ -40,10 +40,11 @@ int	main(int argc, char **argv)
 		ft_printf("./push_swap\n");
 	if (argc == 2)
 		error_out();
-	else if (argc > 1)
+	else if (argc > 2)
 	{
 		make_stack(&a, argv, argc);
-		ft_printf("stack_a\n");
+		push_b(&a, &b);
+		//push_a(&a, &b);
 		print(&a);
 		set_index(&a);
 		if (is_sorted (&a) == 0)
@@ -51,10 +52,8 @@ int	main(int argc, char **argv)
 			if (argc == 3)
 				swap_a(&a);
 			radix_sort(&a, &b, (argc -1));
-			
 		}
-	ft_printf("stack_a\n");
-	print(&a);
 	}
+	print(&a);
 	free_all(&a);
 }

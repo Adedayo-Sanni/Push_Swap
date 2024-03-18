@@ -32,7 +32,7 @@ void	make_node(t_stack **stack, int nbr)
 		new_node->prev = NULL;
 		return ;
 	}
-	last_node = find_base(stack);
+	last_node = find_top(stack);
 	last_node->next = new_node;
 	new_node->prev = last_node;
 }
@@ -43,7 +43,7 @@ void	make_stack(t_stack **a, char **argv, int argc)
 	int	value;
 
 	digit_check(argv);
-	while (argc != 1)
+	while (argc > 1)
 	{
 		value = ft_atoi(argv[argc - 1]);
 		if (value < INT_MIN || value > INT_MAX

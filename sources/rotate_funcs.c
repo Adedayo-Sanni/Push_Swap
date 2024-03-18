@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 17:24:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/12 17:24:41 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/18 15:32:12 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/18 15:32:12 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	rotate_a(t_stack **stack_a)
 
 	if (*stack_a == NULL)
 		return ;
-	last_node = find_base(stack_a);
+	last_node = find_top(stack_a);
 	last_node->next = *stack_a;
 	*stack_a = (*stack_a)->next;
 	(*stack_a)->prev = NULL;
@@ -38,7 +38,7 @@ void	rotate_b(t_stack **stack_b)
 
 	if (*stack_b == NULL)
 		return ;
-	last_node = find_base(stack_b);
+	last_node = find_top(stack_b);
 	last_node->next = *stack_b;
 	*stack_b = (*stack_b)->next;
 	(*stack_b)->prev = NULL;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_func.c                                       :+:      :+:    :+:   */
+/*   node_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:54:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/11 17:54:19 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/18 15:31:40 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/18 15:31:40 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ t_stack	*pop_node(t_stack **stack_top)
 	(*stack_top) = (*stack_top)->next;
 	temp->next = NULL;
 	temp->prev = NULL;
-	ft_printf("poped node %d\n", temp->value);
 	return (temp);
 }
 
-t_stack	*find_top(t_stack **stack)
+t_stack	*find_base(t_stack **stack)
 {
 	t_stack	*temp;
 
@@ -38,7 +37,7 @@ t_stack	*find_top(t_stack **stack)
 	return (temp);
 }
 
-t_stack	*find_base(t_stack **stack)
+t_stack	*find_top(t_stack **stack)
 {
 	t_stack	*current;
 

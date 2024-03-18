@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 23:47:06 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/11 23:47:06 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/18 15:32:20 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/18 15:32:20 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len)
 
 	index_count = index_binary(stack_len - 1);
 	bit_shift = 0;
-	i = stack_len;
 	while (bit_shift < index_count)
 	{
+		i = stack_len;
 		while (i != 0)
 		{
 			if (!(((*stack_a)->index >> bit_shift) & 1))
@@ -65,8 +65,8 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len)
 				rotate_a(stack_a);
 			i--;
 		}
-		while (stack_b)
-		push_a(stack_b, stack_a);
+		while (*stack_b)
+			push_a(stack_a, stack_b);
 		bit_shift++;
 	}
 }

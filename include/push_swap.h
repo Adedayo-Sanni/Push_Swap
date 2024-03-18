@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "../libft/libft.h" /* mylibft */
+#include <stdio.h>
 
 //Stack Struct
 typedef struct s_stack
@@ -32,12 +33,12 @@ int		digit_check(char **str);
 int		duplicate_check(t_stack **stack, int value);
 int		arg_to_int(char **argv);
 int		is_sorted(t_stack **stack);
-void	error_out(void);
-void	make_node(t_stack **stack, int nbr);
 t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
 t_stack	*pop_node(t_stack **head);
 t_stack	*create_node(int nbr);
+void	error_out(void);
+void	make_node(t_stack **stack, int nbr);
 void	free_all(t_stack **head);
 void	make_stack(t_stack **a, char **argv, int argc);
 void	lstadd_front(t_stack **lst, t_stack *new);
@@ -45,7 +46,7 @@ void	*swap_a(t_stack **swap);
 void	*swap_b(t_stack **swap);
 void	swap_both(t_stack **swap_a, t_stack **swap_b);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
-void	push_b(t_stack **stack_b, t_stack **stack_a);
+void	push_b(t_stack **stack_a, t_stack **stack_b);
 void	rotate_a(t_stack **stack_a);
 void	rotate_b(t_stack **stack_b);
 void	rotate_rr(t_stack **stack_a, t_stack **stack_b);

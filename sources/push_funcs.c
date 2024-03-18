@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 17:24:23 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/12 17:24:23 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/18 15:31:50 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/18 15:31:50 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,33 @@ void	lstadd_front(t_stack **lst, t_stack *new)
 	*lst = new;
 }
 
-void	push_function(t_stack **source, t_stack **recieve)
+void	push_function(t_stack **source, t_stack **receive)
 {
-	t_stack	*push_node;
+	t_stack	*popped_node;
+	t_stack	*last_node;
 
-	if (source == NULL)
-		error_out();
-	push_node = *source;
-	*source = (*source)->next;
-	//(*source)->prev = NULL;
-	if (recieve == NULL)
-	{
-		recieve = &push_node;
-		push_node->next = NULL;
-	}
+	popped_node = pop_node(source);
+	if (popped_node == NULL)
+		return ;
+	if (*receive == NULL)
+		*receive = popped_node;
 	else
 	{
-		push_node->next = *source;
-		//push_node->next->prev = push_node;
-		recieve = &push_node;
+		last_node = find_top(receive);
+		last_node->next = popped_node;
+		popped_node->prev = last_node;
+		popped_node->next = NULL;
 	}
 }
 
 void	push_a(t_stack **stack_a, t_stack **stack_b)
 {
-	push_function(stack_a, stack_b);
+	push_function(stack_b, stack_a);
 	ft_printf("pa\n");
 }
 
-void	push_b(t_stack **stack_b, t_stack **stack_a)
+void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
-	push_function(stack_b, stack_b);
-	ft_printf("pa\n");
+	push_function(stack_a, stack_b);
+	ft_printf("pb\n");
 }
-
-// void	push_a(t_stack **source, t_stack **recieve)
-// {
-// 	t_stack	*poped_node;
-
-// 	poped_node = pop_node(source);
-// 	*recieve = create_node(poped_node->value);
-// 	ft_printf("pa\n");
-// }
-
-// void	push_b(t_stack **source, t_stack **recieve)
-// {
-// 	t_stack	*poped_node;
-
-// 	poped_node = pop_node(source);
-// 	*recieve = create_node(poped_node->value);
-// 	ft_printf("pb\n");
-// }
-
-// t_stack	*create_node(int nbr)
-// {
-// 	t_stack	*node;
-
-// 	node = (t_stack *)malloc(sizeof(t_stack *));
-// 	node->value = nbr;
-// 	node->next = NULL;
-// 	node->prev = NULL;
-// 	return (node);
-// }
