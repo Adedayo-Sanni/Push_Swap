@@ -35,9 +35,7 @@
 // 	}
 // }
 
-
-
-t_stack	*lesser_index(t_stack **stack)
+static t_stack	*lesser_index(t_stack **stack)
 {
 	t_stack	*node;
 	t_stack	*lesser_node;
