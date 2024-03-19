@@ -12,50 +12,58 @@
 
 #include "../include/push_swap.h"
 
-// void	set_index(t_stack **stack)
-// {
-// 	t_stack	*node;
-// 	t_stack	*next_node;
+/*
+ void	set_index(t_stack **stack)
+ {
+ 	t_stack	*node;
+ 	t_stack	*next_node;
 
-// 	node = *stack;
-// 	while (node != NULL)
-// 	{
-// 		next_node = *stack;
-// 		while (next_node != NULL)
-// 		{
-// 			if ((node->value) < (next_node->value))
-// 			{
-// 				node->index ++;
-// 			}
-// 			next_node = next_node->next;
-// 		ft_printf("%d ", node->value);
-// 		ft_printf("%d\n", node->index);
-// 		}
-// 		node = node->next;
-// 	}
-// }
+ 	node = *stack;
+ 	while (node != NULL)
+ 	{
+ 		next_node = *stack;
+ 		while (next_node != NULL)
+ 		{
+ 			if ((node->value) < (next_node->value))
+ 			{
+ 				node->index ++;
+ 			}
+ 			next_node = next_node->next;
+ 		}
+ 		node = node->next;
+ 		ft_printf("%d ", node->value);
+ 		ft_printf("%d\n", node->index);
+ 	}
+ }
+*/
 
-static t_stack	*lesser_index(t_stack **stack)
+void set_index(t_stack **stack) 
 {
-	t_stack	*node;
-	t_stack	*lesser_node;
-	int		bool;
+    t_stack *node;
+    t_stack *current;
+    int count;
 
-	node = *stack;
-	lesser_node = NULL;
-	bool = 0;
-	if (node != NULL)
-		error_out();
-		while (node != NULL)
+    node = *stack;
+    while (node != NULL) 
+	{
+        count = 0;
+        current = *stack;
+        while (current != NULL) 
 		{
-			if ((node->index == -1) && ((node->value) < (lesser_node->value)))
-			{
-				lesser_node = node;
-				bool = 1;
-			}
-		}
-		node = node->next;
-	return (lesser_node);
+            if (current->value > node->value) 
+                count++;
+            current = current->next;
+        }
+        node->index = count;
+        node = node->next;
+    }
+    node = *stack;
+    while (node != NULL) 
+	{
+       ft_printf("%d ", node->value);
+       ft_printf("%d\n", node->index);
+        node = node->next;
+    }
 }
 
 int	index_binary(int index)
