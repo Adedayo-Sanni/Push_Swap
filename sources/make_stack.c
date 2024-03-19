@@ -43,13 +43,13 @@ void	make_stack(t_stack **a, char **argv, int argc)
 	int	value;
 
 	digit_check(argv);
-	while (argc > 1)
+	i = 0;
+	while (++i < argc)
 	{
-		value = ft_atoi(argv[argc - 1]);
+		value = ft_atoi(argv[i]);
 		if (value < INT_MIN || value > INT_MAX
 			|| duplicate_check(a, value) == 1)
 			error_out();
 		make_node (a, value);
-		argc--;
 	}
 }

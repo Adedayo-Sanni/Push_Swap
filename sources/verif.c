@@ -50,15 +50,15 @@ int	duplicate_check(t_stack **stack, int value)
 	return (0);
 }
 
-int	is_sorted(t_stack **stack)
+int	is_sorted(t_stack *stack)
 {
 	if (NULL == stack)
 		error_out();
-	while ((*stack)->next)
+	while (stack->next)
 	{
-		if ((*stack)->value > (*stack)->next->value)
+		if (stack->value > stack->next->value)
 			return (0);
-		(*stack) = (*stack)->next;
+		stack = stack->next;
 	}
 	return (1);
 }

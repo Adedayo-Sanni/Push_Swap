@@ -39,12 +39,12 @@ t_stack	*find_base(t_stack **stack)
 
 t_stack	*find_top(t_stack **stack)
 {
-	t_stack	*current;
+	t_stack	*temp;
 
 	if (*stack == NULL)
 		return (NULL);
-	current = *stack;
-	while (current->next != NULL)
-		current = current->next;
-	return (current);
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
 }

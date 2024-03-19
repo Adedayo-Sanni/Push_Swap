@@ -1,10 +1,20 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/19 17:10:01 by asanni            #+#    #+#             */
+/*   Updated: 2024/03/19 17:42:08 by asanni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void  bigger_node(t_stack **stack)
+void	bigger_node(t_stack **stack)
 {
-  int		bigger;
+	int		bigger;
 
 	bigger = (*stack)->value;
 	while (stack)
@@ -16,9 +26,9 @@ void  bigger_node(t_stack **stack)
 	return (bigger);
 }
 
-void  lesser_node(t_stack **stack)
+void	lesser_node(t_stack **stack)
 {
-  int		lesser;
+	int		lesser;
 
 	lesser = (*stack)->value;
 	while (stack)

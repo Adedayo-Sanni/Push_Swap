@@ -16,11 +16,12 @@ void	free_all(t_stack **head)
 {
 	t_stack	*temp;
 
-	while (*head != NULL)
+	temp = NULL;
+	while ((*head) != NULL)
 	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp);
+		temp = (*head)->next;
+		free((*head));
+		(*head) = temp;
 	}
 	head = NULL;
 }

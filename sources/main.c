@@ -43,13 +43,15 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 	{
 		make_stack(&a, argv, argc);
+		print(&a);
 		set_index(&a);
-		if (is_sorted (&a) == 0)
+		if (is_sorted (a) == 0)
 		{	
 			if (argc == 3)
 				swap_a(&a);
 			radix_sort(&a, &b, (argc -1));
 		}
 	}
+	print(&a);
 	free_all(&a);
 }

@@ -12,11 +12,11 @@
 
 #include "../include/push_swap.h"
 
-void	lstadd_front(t_stack **lst, t_stack *new)
-{
-	new->next = *lst;
-	*lst = new;
-}
+// void	lstadd_front(t_stack **lst, t_stack *new)
+// {
+// 	new->next = *lst;
+// 	*lst = new;
+// }
 
 void	push_function(t_stack **source, t_stack **receive)
 {

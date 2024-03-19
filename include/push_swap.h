@@ -31,7 +31,7 @@ typedef struct s_stack
 int		digit_check(char **str);
 int		duplicate_check(t_stack **stack, int value);
 int		arg_to_int(char **argv);
-int		is_sorted(t_stack **stack);
+int		is_sorted(t_stack *stack);
 t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
 t_stack	*pop_node(t_stack **head);
