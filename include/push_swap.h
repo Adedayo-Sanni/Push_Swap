@@ -27,15 +27,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 }t_stack;
 
-//Functions 
-int		digit_check(char **str);
-int		duplicate_check(t_stack **stack, int value);
-int		arg_to_int(char **argv);
-int		is_sorted(t_stack *stack);
+//Functions
 t_stack	*find_base(t_stack **stack);
 t_stack	*find_top(t_stack **stack);
 t_stack	*pop_node(t_stack **head);
 t_stack	*create_node(int nbr);
+int		digit_check(char **str);
+int		duplicate_check(t_stack **stack, int value);
+int		arg_to_int(char **argv);
+int		is_sorted(t_stack *stack);
+int		index_binary(int index);
+void	sort_3(t_stack **stack);
+void	sort_5(t_stack **stack_a, t_stack **stack_b);
 void	error_out(void);
 void	make_node(t_stack **stack, int nbr);
 void	free_all(t_stack **head);
@@ -52,7 +55,6 @@ void	rotate_rr(t_stack **stack_a, t_stack **stack_b);
 void	rev_a(t_stack **stack_a);
 void	rev_b(t_stack **stack_b);
 void	set_index(t_stack **stack);
-int		index_binary(int index);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len);
 
 #endif

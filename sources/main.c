@@ -38,18 +38,18 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		ft_printf("./push_swap\n");
-	if (argc == 2)
-		error_out();
-	else if (argc > 2)
+	else
 	{
 		make_stack(&a, argv, argc);
-		print(&a);
 		set_index(&a);
 		if (is_sorted (a) == 0)
 		{	
-			if (argc == 3)
-				swap_a(&a);
-			radix_sort(&a, &b, (argc -1));
+			if (argc <= 4)
+				sort_3(&a);
+			else if (argc <= 6)
+				sort_5(&a, &b);
+			else
+				radix_sort(&a, &b, (argc -1));
 		}
 	}
 	print(&a);

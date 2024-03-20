@@ -31,6 +31,7 @@ sources/push_funcs.c \
 sources/revrotate_funcs.c \
 sources/rotate_funcs.c \
 sources/sort_stack.c \
+sources/sort.c \
 sources/swap_funcs.c \
 sources/verif.c \
 
