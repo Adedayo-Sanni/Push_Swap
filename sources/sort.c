@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:10:01 by asanni            #+#    #+#             */
-/*   Updated: 2024/03/19 23:35:37 by asanni           ###   ########.fr       */
+/*   Updated: 2024/03/20 17:10:52 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,27 +88,43 @@ int	lesser_node(t_stack *head)
 	return (lesser);
 }
 
-void	move_to_top(int value, t_stack **head)
-{
-	t_stack	*current;
+// void	move_to_top(int value, t_stack **head)
+// {
+// 	t_stack	*current;
 
-	current = *head;
-	while (current && current->value != value)
-		current = current->next;
-	if (!current)
-		return ;
-	if (current->prev)
+// 	current = *head;
+// 	while (current && current->value != value)
+// 		current = current->next;
+// 	if (!current)
+// 		return ;
+// 	if (current->prev)
+// 	{
+// 		current->prev->next = current->next;
+// 		if (current->next)
+// 			current->next->prev = current->prev;
+// 	}
+// 	else
+// 		return ;
+// 	current->next = *head;
+// 	current->prev = NULL;
+// 	(*head)->prev = current;
+// 	*head = current;
+// }
+
+void	move_to_top(int smallest, t_stack **stack)
+{
+	t_stack	*temp;
+
+	temp = *stack;
+	while (temp->value != smallest)
+		temp = temp->next;
+	if (temp->next == NULL)
 	{
-		current->prev->next = current->next;
-		if (current->next)
-			current->next->prev = current->prev;
-	}
-	else
+		rev_a(stack);
 		return ;
-	current->next = *head;
-	current->prev = NULL;
-	(*head)->prev = current;
-	*head = current;
+	}	
+	while ((*stack)->value != smallest)
+		rotate_a(stack);
 }
 
 void	sort_3(t_stack **stack)
@@ -131,6 +147,6 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 	move_to_top(lesser_node((*stack_a)), stack_a);
 	push_b(stack_a, stack_b);
 	sort_3(stack_a);
-	push_b(stack_a, stack_b);
-	push_b(stack_a, stack_b);
+	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b);
 }

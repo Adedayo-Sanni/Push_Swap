@@ -52,6 +52,6 @@ int	main(int argc, char **argv)
 				radix_sort(&a, &b, (argc -1));
 		}
 	}
-	print(&a);
+	//print(&a);
 	free_all(&a);
 }
