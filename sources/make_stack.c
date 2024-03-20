@@ -39,17 +39,18 @@ void	make_node(t_stack **stack, int nbr)
 
 void	make_stack(t_stack **a, char **argv, int argc)
 {
-	int	i;
-	int	value;
+	long	value;
+	int		i;
 
 	digit_check(argv);
-	i = 0;
-	while (++i < argc)
+	i = 1;
+	while (i < argc)
 	{
-		value = ft_atoi(argv[i]);
+		value = ft_atol(argv[i]);
 		if (value < INT_MIN || value > INT_MAX
 			|| duplicate_check(a, value) == 1)
 			error_out();
 		make_node (a, value);
+		i++;
 	}
 }
