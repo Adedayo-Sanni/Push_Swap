@@ -25,11 +25,11 @@ t_stack	*pop_node(t_stack **stack_top)
 	return (temp);
 }
 
-t_stack	*find_base(t_stack **stack)
+t_stack	*find_top(t_stack **stack)
 {
 	t_stack	*temp;
 
-	temp = (*stack);
+	temp = *stack;
 	if (temp == NULL)
 		return (NULL);
 	while (temp->prev != NULL)
@@ -37,13 +37,13 @@ t_stack	*find_base(t_stack **stack)
 	return (temp);
 }
 
-t_stack	*find_top(t_stack **stack)
+t_stack	*find_base(t_stack **stack)
 {
 	t_stack	*temp;
 
-	if (*stack == NULL)
-		return (NULL);
 	temp = *stack;
+	if (temp == NULL)
+		return (NULL);
 	while (temp->next != NULL)
 		temp = temp->next;
 	return (temp);

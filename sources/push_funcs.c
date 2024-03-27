@@ -12,28 +12,26 @@
 
 #include "../include/push_swap.h"
 
-// void	lstadd_front(t_stack **lst, t_stack *new)
-// {
-// 	new->next = *lst;
-// 	*lst = new;
-// }
-
 void	push_function(t_stack **source, t_stack **receive)
 {
-	t_stack	*popped_node;
-	t_stack	*last_node;
+	t_stack	*node_to_push;
 
-	popped_node = pop_node(source);
-	if (popped_node == NULL)
-		error_out();
-	if (*receive == NULL)
-		*receive = popped_node;
+	if (NULL == *source)
+		return ;
+	node_to_push = *source;
+	*source = (*source)->next;
+	if (*source)
+		(*source)->prev = NULL;
+	if (NULL == *receive)
+	{
+		*receive = node_to_push;
+		node_to_push->next = NULL;
+	}
 	else
 	{
-		last_node = find_top(receive);
-		last_node->next = popped_node;
-		popped_node->prev = last_node;
-		popped_node->next = NULL;
+		node_to_push->next = *receive;
+		node_to_push->next->prev = node_to_push;
+		*receive = node_to_push;
 	}
 }
 

@@ -6,55 +6,11 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:10:01 by asanni            #+#    #+#             */
-/*   Updated: 2024/03/20 17:10:52 by asanni           ###   ########.fr       */
+/*   Updated: 2024/03/20 19:17:33 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-// int	bigger_node(t_stack *stack)
-// {
-// 	t_stack	*bigger;
-
-// 	bigger = stack->value;
-// 	while (stack)
-// 	{
-// 		if (stack->value > bigger)
-// 			bigger = stack->value;
-// 		stack = stack->next;
-// 	}
-// 	return (bigger->value);
-// }
-
-// int	lesser_node(t_stack *stack)
-// {
-// 	t_stack	*lesser;
-
-// 	lesser = stack->value;
-// 	while (stack)
-// 	{
-// 		if (stack->value > lesser)
-// 			lesser = stack->value;
-// 		stack = stack->next;
-// 	}
-// 	return (lesser->value);
-// }
-
-// void	move_to_top(int lesser, t_stack **stack)
-// {
-// 	t_stack	*temp;
-
-// 	temp = *stack;
-// 	while (temp->value != lesser)
-// 		temp = temp->next;
-// 	if (temp->next == NULL)
-// 	{
-// 		rev_a(stack);
-// 		return ;
-// 	}	
-// 	while ((*stack)->value != lesser)
-// 		rotate_a(stack);
-// }
 
 int	bigger_node(t_stack *head)
 {
@@ -87,29 +43,6 @@ int	lesser_node(t_stack *head)
 	}
 	return (lesser);
 }
-
-// void	move_to_top(int value, t_stack **head)
-// {
-// 	t_stack	*current;
-
-// 	current = *head;
-// 	while (current && current->value != value)
-// 		current = current->next;
-// 	if (!current)
-// 		return ;
-// 	if (current->prev)
-// 	{
-// 		current->prev->next = current->next;
-// 		if (current->next)
-// 			current->next->prev = current->prev;
-// 	}
-// 	else
-// 		return ;
-// 	current->next = *head;
-// 	current->prev = NULL;
-// 	(*head)->prev = current;
-// 	*head = current;
-// }
 
 void	move_to_top(int smallest, t_stack **stack)
 {

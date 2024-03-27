@@ -24,7 +24,8 @@ void	print(t_stack **topo)
 	atual = (*topo);
 	while (atual != NULL)
 	{
-		ft_printf("node: %d\n", atual->value);
+		ft_printf("node: %d ", atual->value);
+		ft_printf("index: %d\n", atual->index);
 		atual = atual->next;
 	}
 }
@@ -37,11 +38,10 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
-		ft_printf("./push_swap\n");
+		return (1);
 	else
 	{
 		make_stack(&a, argv, argc);
-		set_index(&a);
 		if (is_sorted (a) == 0)
 		{	
 			if (argc <= 4)
@@ -49,9 +49,12 @@ int	main(int argc, char **argv)
 			else if (argc <= 6)
 				sort_5(&a, &b);
 			else
-				radix_sort(&a, &b, (argc -1));
+			{
+				set_index(&a);
+				radix_sort(&a, &b, (argc - 1));
+			}
 		}
 	}
-	//print(&a);
 	free_all(&a);
+	return (0);
 }

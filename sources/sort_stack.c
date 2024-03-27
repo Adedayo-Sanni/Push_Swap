@@ -15,26 +15,22 @@
 void	set_index(t_stack **stack)
 {
 	t_stack	*node;
-	t_stack	*current;
-	int		count;
+	t_stack	*node_next;
 
-	node = *stack;
+	node = (*stack);
 	while (node != NULL)
 	{
-		count = 0;
-		current = *stack;
-		while (current != NULL)
+		node_next = (*stack);
+		while (node_next != NULL)
 		{
-			if (current->value > node->value)
-				count++;
-			current = current->next;
+			if (node->value > node_next->value)
+			{
+				(node)->index++;
+			}
+			node_next = node_next->next;
 		}
-		node->index = count;
 		node = node->next;
 	}
-	node = *stack;
-	while (node != NULL)
-		node = node->next;
 }
 
 int	index_binary(int index)
@@ -56,7 +52,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_len)
 	int	index_count;
 	int	i;
 
-	index_count = index_binary(stack_len);
+	index_count = index_binary(stack_len -1);
 	bit_shift = 0;
 	while (bit_shift < index_count)
 	{

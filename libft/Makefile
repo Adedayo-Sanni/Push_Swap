@@ -68,13 +68,11 @@ $(NAME): $(OBJFILES)
 	ar rcs $(NAME) $?
 	echo $?
 
-bonus: make_folder $(OBJFILES) $(OBJB)
-
 make_folder:
 	@mkdir -p $(OBJFOLDER)
 
 $(OBJFOLDER)%.o: %.c
-	$(CC) -c $< -o $@
+	$(CFLAGS) -c $< -o $@
 	ar rcs $(NAME) $@
 
 clean:

@@ -15,7 +15,7 @@
 void	make_node(t_stack **stack, int nbr)
 {
 	t_stack	*new_node;
-	t_stack	*last_node;
+	t_stack	*tmp;
 
 	if (stack == NULL)
 		error_out();
@@ -23,18 +23,22 @@ void	make_node(t_stack **stack, int nbr)
 	if (new_node == NULL)
 		error_out();
 	new_node->value = nbr;
-	new_node->index = -1;
+	new_node->index = 0;
 	new_node->next = NULL;
+	new_node->prev = NULL;
 	if (*stack == NULL)
 	{
 		*stack = new_node;
-		new_node->next = NULL;
-		new_node->prev = NULL;
 		return ;
 	}
-	last_node = find_top(stack);
-	last_node->next = new_node;
-	new_node->prev = last_node;
+	else
+	{
+		tmp = *stack;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = new_node;
+		new_node->prev = tmp;
+	}
 }
 
 void	make_stack(t_stack **a, char **argv, int argc)
